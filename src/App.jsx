@@ -46,7 +46,11 @@ function App() {
       <h1 className="text-center text-3xl font-bold mb-4">Task Tracker App</h1>
       <TaskForm addTask={addTask}/>
       <TaskFilter />
-      <TaskList />
+      <TaskList 
+      tasks={filteredTasks}
+      deleteTask={deleteTask}
+      toggleTaskStatus={toggleTaskStatus}
+      />
     </div>
   );
 }

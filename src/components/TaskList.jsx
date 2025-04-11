@@ -1,7 +1,18 @@
 import React from 'react'
-
-export default function TaskList() {
+import TaskItem from './TaskItem'
+export default function TaskList({tasks,deleteTask,toggleTaskStatus}) {
   return (
-    <div>TaskList</div>
+    <div className='space-y-2'>
+        {
+            tasks.map((task)=>(
+                <TaskItem
+                key={task.id}
+                task={task}
+                deleteTask={deleteTask}
+                toggleTaskStatus={toggleTaskStatus}
+                />
+            ))
+        }
+    </div>
   )
 }
