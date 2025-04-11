@@ -33,19 +33,15 @@ function App() {
 
   //filter task based on completion status
   const filteredTasks = tasks.filter((task) => {
-    if (filter === "Completed") {
-      return task.completed;
-    }
-    if (filter === "Pending") {
-      return !task.completed;
-    }
+    if (filter === "Completed") return task.completed;
+    if (filter === "Pending")  return !task.completed;
     return true;
   });
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <h1 className="text-center text-3xl font-bold mb-4">Task Tracker App</h1>
       <TaskForm addTask={addTask}/>
-      <TaskFilter />
+      <TaskFilter setFilter={setFilter} />
       <TaskList 
       tasks={filteredTasks}
       deleteTask={deleteTask}
