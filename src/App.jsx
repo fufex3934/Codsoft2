@@ -12,39 +12,39 @@ function App() {
     const newTask = {
       id: Date.now(),
       description: taskDescription,
-      completed:  false,
+      completed: false,
     };
-    setTasks([...tasks,newTask]);
+    setTasks([...tasks, newTask]);
   };
 
   //deleting task
-  const deleteTask = (id)=>{
-    setTasks(tasks.filter((task)=>task.id !==id));
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   //toggle task completion status
-  const toggleTaskStatus = (id)=>{
+  const toggleTaskStatus = (id) => {
     setTasks(
-      tasks.map((task)=>
-        task.id === id ? {...task,completed:!task.completed} : task
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
       )
-    )
-  }
+    );
+  };
 
   //filter task based on completion status
-  const filteredTasks = tasks.filter((task)=>{
-    if(filter === 'Completed'){
-      return task.completed
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "Completed") {
+      return task.completed;
     }
-    if(filter === 'Pending'){
-      return !task.completed
+    if (filter === "Pending") {
+      return !task.completed;
     }
     return true;
   });
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <h1 className="text-center text-3xl font-bold mb-4">Task Tracker App</h1>
-      <TaskForm />
+      <TaskForm addTask={addTask}/>
       <TaskFilter />
       <TaskList />
     </div>
