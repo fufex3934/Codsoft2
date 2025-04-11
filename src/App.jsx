@@ -7,7 +7,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("All");
 
-  //adding task
+
   const addTask = (taskDescription) => {
     const newTask = {
       id: Date.now(),
@@ -17,12 +17,11 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
-  //deleting task
+
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  //toggle task completion status
   const toggleTaskStatus = (id) => {
     setTasks(
       tasks.map((task) =>
@@ -31,7 +30,6 @@ function App() {
     );
   };
 
-  //filter task based on completion status
   const filteredTasks = tasks.filter((task) => {
     if (filter === "Completed") return task.completed;
     if (filter === "Pending")  return !task.completed;
